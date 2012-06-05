@@ -124,6 +124,7 @@ body
 
 #app_store_link {
   display:table-cell;
+  visibility: hidden;
   vertical-align: top;
   padding: 30px 0 0 20px;
 }
