@@ -2,11 +2,6 @@ require 'rubygems'
 require 'newrelic_rpm'
 require 'sinatra'
 
-#e exigencia
-#p puntaje máximo
-#s step
-#m nota mínima
-
 module Rack
   class Request
     def ip
@@ -52,11 +47,6 @@ get '/' do
   erb :escala
 end
 
-get '/stats' do
-  @accesos = contar_accesos
-  erb :accesos
-end
-
 private
 
 def nota(ptje) 
@@ -66,23 +56,4 @@ def nota(ptje)
     nota=(params[:nmax]-params[:napr])*(ptje-params[:exig]*params[:pmax])/(params[:pmax]*(1-params[:exig]))+params[:napr]
   end
   return nota
-end
-
-
-def contar_accesos
-  count = {}
-
-  File::open('access.log', "r") do |f|
-    f.read.split("\n").each do |l|
-    l=l.gsub(/.*\[(.*)-..T.*\].*/,'\1')
-    if l=~/\d{4}-\d{2}/
-      if count[l].nil?
-        count[l] = 1
-      else
-        count[l]+=1
-      end
-    end
-  end
-  return count.sort
-  end
 end
