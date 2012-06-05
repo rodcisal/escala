@@ -37,11 +37,12 @@ redirect 'escala/'
 end
 
 get '/' do
-  default_params = {:exig => 60 , :pmax => 10, :paso => 1, :nmin => 2, :nmax => 7, :napr => 4}
+  default_params = {:exig => 60 , :pmax => 100, :paso => 1, :nmin => 2, :nmax => 7, :napr => 4}
   default_params.each{|k,v| params[k] = v if (!params[k] or params[k].empty?)}
   params.each{|k,v| params[k]=v.to_s.gsub(",",".").to_f}
   params[:exig] = params[:exig]/100.0
   params[:pmax] = 1000 if params[:pmax] > 1000
+  params[:pmax] = 10 if params[:pmax] <= 0
   params[:paso] = 1.0 if params[:paso] == 0
   params[:paso] = 0.01 if params[:paso] < 0.01
   @notas = (0..params[:pmax]/params[:paso]).map{|p| [(p*params[:paso]).round(2),nota(p*params[:paso])]}
