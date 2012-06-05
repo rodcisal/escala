@@ -13,6 +13,7 @@ GEM
 
 PLATFORMS
   java
+  ruby
 
 DEPENDENCIES
   newrelic_rpm

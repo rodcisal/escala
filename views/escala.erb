@@ -1,100 +1,66 @@
 <html>
-<head>
-	<title>Generador de escala de notas</title>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<link href="escala.css" media="screen" rel="stylesheet" type="text/css">
-	<link rel="icon" type="image/png" href="favicon.png">
-</head>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-11840444-3");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-<body>
-	<div id="fb-root"></div>
-	<script>
-		// Facebook
-		(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-
-		// Twitter
-		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-
-		// Google+
-		window.___gcfg = {lang: 'es'};
-	  (function() {
-	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-	    po.src = 'https://apis.google.com/js/plusone.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-	  })();
-	</script>
-	<div id="header">
-		<h1>Generador de escala de notas</h1> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+	<head>
+		<title>Generador de escala de notas</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<link href="escala.css" media="screen" rel="stylesheet" type="text/css">
+		<link rel="icon" type="image/png" href="favicon.png">
+		<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			try {
+			var pageTracker = _gat._getTracker("UA-11840444-3");
+			pageTracker._trackPageview();
+			} catch(err) {}
+		</script>
+		<script src="escala.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="fb-root"></div>
+		<div id="header">
+			<div class="check"><img src="check.png"></div>
+			Generador de escala de notas
+			<span id="autor">de <a href="http://pumarino.org/">Juan Ignacio Pumarino</a></span>
+			<div id="redes-sociales">
+				<div class="fb-like" data-href="http://escaladenotas.cl" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://escaladenotas.cl" data-lang="es">Twittear</a>
+				<div class="g-plusone" data-href="http://escaladenotas.cl" data-size="medium"></div>
+			</div>
+		</div>
+	       
 		<form id="formulario" method="get">
-			<div class="field">Nota mín.	<input size="4" type="text" name="nmin" value="<%=params[:nmin] %>" /></div>
-			<div class="field">Nota máx.	<input size="4" type="text" name="nmax" value="<%=params[:nmax] %>" /></div>
-			<div class="field">Nota aprobación	<input size="4" type="text" name="napr" value="<%=params[:napr] %>" /></div>
-			<div class="field">Exigencia	<input size="4"  type="text" name="exig" value="<%=params[:exig] %>"  /> %</div>
-			<div class="field">Ptje. máximo <input size="5" type="text" name="pmax" value="<%=params[:pmax] %>"  /></div>
-			<div class="field">Paso 
-				<input size="4" type="text" name="paso" value="<%=params[:paso] %>"  /></div>
-			<div class="field"><input type="submit" value="Generar tabla"/></div>
+			<table>
+				<tr><td>Nota mínima</td><td><input type="text" name="nmin" value="<%=params[:nmin] %>"></td>
+				<tr><td>Nota máxima</td><td><input type="text" name="nmax" value="<%=params[:nmax] %>"></td></tr>
+				<tr><td>Nota aprobación</td><td><input type="text" name="napr" value="<%=params[:napr] %>"></td></tr>
+				<tr><td>Exigencia</td><td><input type="text" name="exig" value="<%=params[:exig] %>"></td></tr>
+				<tr><td>Puntaje máximo</td><td><input type="text" name="pmax" value="<%=params[:pmax] %>"></td></tr>
+				<tr><td>Paso</td><td><input type="text" name="paso" value="<%=params[:paso] %>"></td></tr>
+			</table>
+			<input type="submit" value="Generar tabla"/></div>
 		</form>
 
-	</div>
-<table>
-	<tr>
-	<% @notas.each do |nota|%>
-	<td valign="top">
-	<div id="escala">
-		<table>
-			<tr><th>Puntaje</th><th>Nota</th></tr>
-			<% nota.each do |n| %>
-			<tr>
-				<td><%= n.first %></td>
-				<td
-
-				<% if (n.last*10).round/10.0 < params[:napr] %>
-				class="rojo"
-				<% end %>
-
-				>
-				<%= (n.last*10).round/10.0 %>
-				</td>
-			</tr>
-				<% end %>
-			</table>
-
-		</div>
-		</td>
-		<% end %>
-		</tr>
-		</table>
-
-        <ul>
-          <li>Nota mínima: la correspondiente a puntaje 0 (en chile suele ser 1,0 ó 2,0)</li>
-          <li>Nota máxima: la correspondiente al puntaje máximo (en Chile es 7,0)</li>
-          <li>Nota aprobación: nota considerada "suficiente" (en Chile es 4,0)</li>
-          <li>Exigencia: porcentaje del puntaje máximo necesario para obtener la nota de aprobación</li>
-          <li>Puntaje máximo: ¿se explica solo?</li>
-          <li>Paso: cantidad de puntos en que se va incrementando la escala (de 1,0 en 1,0, 0,5 en 0,5, etc.)</li>
-        </ul>
-		<div id="footer">
-			<div class="fb-like" data-href="http://escaladenotas.cl" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
-			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://escaladenotas.cl" data-lang="es">Twittear</a>
-			<div class="g-plusone" data-href="http://escaladenotas.cl" data-size="medium"></div>
-      <p>Creado por <a href="http://pumarino.org/">Juan Ignacio Pumarino</a> utilizando <a target="_blank" href="http://www.sinatrarb.com">Sinatra</a></p> 
+		<div id="main">
+			<% @notas.each do |nota|%>
+				<% i=0 %>
+				<table class="escala">
+					<tr><th>Puntaje</th><th>Nota</th></tr>
+					<% nota.each do |n| %>
+						<tr class="<%= %w(odd even)[(i+=1)%2] %>">
+							<td><%= n.first %></td>
+							<td class="<%= (n.last*10).round/10.0 < params[:napr] ? 'rojo' : '' %>">
+								<%= (n.last*10).round/10.0 %>
+							</td>
+						</tr>
+					<% end %>
+				</table>
+			<% end %>
 		</div>
 
+		<div id="app_store_link">
+			<a href="http://www.ing.puc.cl" target="_blank">
+		  	<img src="app_store_image.png">
+			</a>
+		</div>
 
 	</body>
-	</html>
+</html>

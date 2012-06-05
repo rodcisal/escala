@@ -45,7 +45,7 @@ get '/' do
   params[:paso] = 1.0 if params[:paso] == 0
   params[:paso] = 0.01 if params[:paso] < 0.01
   @notas = (0..params[:pmax]/params[:paso]).map{|p| [(p*params[:paso]).round(2),nota(p*params[:paso])]}
-  @notas = @notas.chunk(15)
+  @notas = @notas.chunk(10)
 
   params[:exig] = params[:exig]*100
   erb :escala
