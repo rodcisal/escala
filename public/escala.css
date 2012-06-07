@@ -31,7 +31,8 @@ a {
 }
 
 h1 {
-  font-size:22px;
+  font-size:inherit;
+  display:inline;
 }
 
 .check {
