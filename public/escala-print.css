@@ -1,0 +1,44 @@
+#header, #contacto, #app_store_link, #formulario input[type=submit] {
+  display:none;
+}
+
+body {
+  font-family: arial, sans-serif;
+  margin:0px;
+}
+
+#formulario table tr {
+  display:inline-block;
+}
+
+#formulario table {
+  font-size:13px;
+}
+
+#formulario input[type=text] {
+  width:45px;
+  font-size:13px;
+  font-family: arial, sans-serif;
+  margin-right:20px;
+}
+
+#main table {
+  float:left;
+  border-collapse: collapse;
+  margin:10px;
+  font-size:13px;
+}
+
+#main table td, #main table th{
+  padding:3px;
+  border:1px solid black;
+  width:50px;
+  text-align:center;
+}
+
+#main table th {
+  font-weight:bold;
+}
+
+
+
