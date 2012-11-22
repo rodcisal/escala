@@ -81,6 +81,10 @@ h1 {
   margin-bottom: 20px;
 }
 
+#formulario input[type=radio] {
+  vertical-align: middle;
+}
+
 #main {
   display:table-cell;
   width:60%;
