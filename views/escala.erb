@@ -45,6 +45,13 @@
 				<tr><td>Exigencia</td><td><input type="text" name="exig" value="<%=params[:exig] %>"></td></tr>
 				<tr><td>Puntaje máximo</td><td><input type="text" name="pmax" value="<%=params[:pmax] %>"></td></tr>
 				<tr><td>Paso</td><td><input type="text" name="paso" value="<%=params[:paso] %>"></td></tr>
+				<tr>
+					<td>Orden</td>
+					<td>
+						⬆<input type="radio" name="orden" value="ascendente" <%= "checked" if params[:orden] == 'ascendente' %>>
+						⬇<input type="radio" name="orden" value="descendente" <%= "checked" if params[:orden] == 'descendente' %>>
+					</td>
+				</tr>
 			</table>
 			<input type="submit" value="Generar tabla"/></div>
 

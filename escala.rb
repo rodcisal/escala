@@ -32,9 +32,9 @@ redirect 'escala/'
 end
 
 get '/' do
-  default_params = {:exig => 60 , :pmax => 100, :paso => 1, :nmin => 2, :nmax => 7, :napr => 4}
+  default_params = {:exig => 60 , :pmax => 100, :paso => 1, :nmin => 2, :nmax => 7, :napr => 4, :orden => 'ascendente'}
   default_params.each{|k,v| params[k] = v if (!params[k] or params[k].empty?)}
-  params.each{|k,v| params[k]=v.to_s.gsub(",",".").to_f}
+  params.each{|k,v| params[k]=v.to_s.gsub(",",".").to_f unless k == "orden" or k == :orden}
   params[:exig] = params[:exig]/100.0
   params[:pmax] = 1000 if params[:pmax] > 1000
   params[:pmax] = 10 if params[:pmax] <= 0
