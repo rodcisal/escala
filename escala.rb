@@ -33,18 +33,7 @@ redirect 'escala/'
 end
 
 get '/' do
-  default_params = {:exig => 60 , :pmax => 100, :paso => 1, :nmin => 2, :nmax => 7, :napr => 4, :orden => 'ascendente'}
-  default_params.each{|k,v| params[k] = v if (!params[k] or params[k].empty?)}
-  params.each{|k,v| params[k]=v.to_s.gsub(",",".").to_f unless k == "orden" or k == :orden}
-  params[:exig] = params[:exig]/100.0
-  params[:pmax] = 1000 if params[:pmax] > 1000
-  params[:pmax] = 10 if params[:pmax] <= 0
-  params[:paso] = 1.0 if params[:paso] == 0
-  params[:paso] = 0.01 if params[:paso] < 0.01
-  @notas = (0..params[:pmax]/params[:paso]).map{|p| [(p*params[:paso]).round(2),nota(p*params[:paso])]}
-  @notas.reverse! if params[:orden] == 'descendente'
-  @notas = @notas.chunk(10)
-
+  @notas = listado_notas(params).chunk(10)
   params[:exig] = params[:exig]*100
   erb :escala
 end
@@ -58,4 +47,18 @@ def nota(ptje)
     nota=(params[:nmax]-params[:napr])*(ptje-params[:exig]*params[:pmax])/(params[:pmax]*(1-params[:exig]))+params[:napr]
   end
   return nota
+end
+
+def listado_notas(params)
+  default_params = {:exig => 60 , :pmax => 100, :paso => 1, :nmin => 2, :nmax => 7, :napr => 4, :orden => 'ascendente'}
+  default_params.each{|k,v| params[k] = v if (!params[k] or params[k].empty?)}
+  params.each{|k,v| params[k]=v.to_s.gsub(",",".").to_f unless k == "orden" or k == :orden}
+  params[:exig] = params[:exig]/100.0
+  params[:pmax] = 1000 if params[:pmax] > 1000
+  params[:pmax] = 10 if params[:pmax] <= 0
+  params[:paso] = 1.0 if params[:paso] == 0
+  params[:paso] = 0.01 if params[:paso] < 0.01
+  @notas = (0..params[:pmax]/params[:paso]).map{|p| [(p*params[:paso]).round(2),nota(p*params[:paso])]}
+  @notas.reverse! if params[:orden] == 'descendente'
+  return @notas
 end
