@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'newrelic_rpm'
 require 'sinatra'
+require 'axlsx'
 
 module Rack
   class Request
