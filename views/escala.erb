@@ -37,7 +37,7 @@
 			</div>
 		</div>
 	       
-		<form id="formulario" method="get">
+		<form id="formulario" method="get" action="<%= url('/') %>">
 			<table>
 				<tr><td>Nota mínima</td><td><input type="text" name="nmin" value="<%=params[:nmin] %>"></td>
 				<tr><td>Nota máxima</td><td><input type="text" name="nmax" value="<%=params[:nmax] %>"></td></tr>
@@ -54,7 +54,7 @@
 				</tr>
 			</table>
 			<input type="submit" class="web" value="Generar tabla"/></div>
-			<input type="submit" class="planilla" value="Descargar planilla"/></div>
+			<input type="submit" class="planilla" name="planilla" value="Descargar planilla"/></div>
 
 			<div id="contacto">
 				<p>¿Recomendaciones, consejos, dudas?</p>

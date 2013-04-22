@@ -33,12 +33,22 @@ redirect 'escala/'
 end
 
 get '/' do
+  if params[:planilla]
+    planilla_excel
+  else
+    tabla_web
+  end
+end
+
+private
+
+def tabla_web
   @notas = listado_notas(params).chunk(10)
   params[:exig] = params[:exig]*100
   erb :escala
 end
 
-get '/planilla.xlsx' do
+def planilla_excel
   notas = listado_notas(params)
 
   p = Axlsx::Package.new
@@ -52,11 +62,9 @@ get '/planilla.xlsx' do
   end
 
   content_type 'application/octet-stream'
+  attachment 'planilla_notas.xlsx'
   p.to_stream
-
 end
-
-private
 
 def nota(ptje) 
   if(ptje<params[:exig]*params[:pmax])

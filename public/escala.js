@@ -25,12 +25,4 @@ $(function() {
     _gaq.push(['_trackEvent', 'links', 'click', 'app_store']);
   });
 
-  $('#formulario input[type=submit].planilla').click(function(){
-    $(this).parent('form').attr('action', '/planilla.xlsx');
-  });
-
-  $('#formulario input[type=submit].web').click(function(){
-    $(this).parent('form').attr('action', '/');
-  });
-
 });
