@@ -9,7 +9,7 @@ GEM
     eventmachine (1.0.0)
     eventmachine (1.0.0-java)
     htmlentities (4.3.1)
-    newrelic_rpm (3.3.2)
+    newrelic_rpm (3.6.0.83)
     nokogiri (1.5.9)
     nokogiri (1.5.9-java)
     rack (1.4.1)
