@@ -24,6 +24,10 @@ a {
   float:left;
 }
 
+.fb-like {
+  margin-right:20px;
+}
+
 #autor {
   font-size:12px;
   color:#777;
