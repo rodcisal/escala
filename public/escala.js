@@ -25,4 +25,9 @@ $(function() {
     _gaq.push(['_trackEvent', 'links', 'click', 'app_store']);
   });
 
+  // Track Event planilla excel
+  $('#planilla_button').click(function() {
+    _gaq.push(['_trackEvent', 'links', 'click', 'planilla_excel']);
+  });
+
 });
