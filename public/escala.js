@@ -21,8 +21,13 @@ $(function() {
   })();
 
   // Track Event App Store
-  $('#app_store_link').click(function() {
-    _gaq.push(['_trackEvent', 'links', 'click', 'app_store']);
+  $('#apple_app_store_link').click(function() {
+    _gaq.push(['_trackEvent', 'links', 'click', 'apple_app_store']);
+  });
+
+  // Track Event Google Play Store
+  $('#google_play_store_link').click(function() {
+    _gaq.push(['_trackEvent', 'links', 'click', 'google_play_store']);
   });
 
   // Track Event planilla excel
