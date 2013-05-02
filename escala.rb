@@ -45,6 +45,7 @@ private
 def tabla_web
   @notas = listado_notas(params).chunk(10)
   params[:exig] = params[:exig]*100
+  @notas[-1][-1][1] = 7 if params[:exig] >= 100 # manejar caso de exigencia 100%
   erb :escala
 end
 
