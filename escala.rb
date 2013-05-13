@@ -55,7 +55,7 @@ def planilla_excel
   p = Axlsx::Package.new
   wb = p.workbook
   wb.add_worksheet(:name => "Basic Worksheet") do |sheet|
-    sheet.add_row ["Nota", "Puntaje"]
+    sheet.add_row ["Puntaje", "Nota"]
     notas.each_with_index do |n, i|
       celda = "A#{i+2}"
       sheet.add_row [n.first, "=ROUND(TRUNC(IF(#{celda}<#{params[:exig]*params[:pmax]},#{params[:napr]-params[:nmin]}*#{celda}/#{params[:exig]*params[:pmax]}+#{params[:nmin]},#{params[:nmax]-params[:napr]}*(#{celda}-#{params[:exig]*params[:pmax]})/#{params[:pmax]*(1-params[:exig])}+#{params[:napr]}),2),1)"] #(n.last*10).round/10.0]
