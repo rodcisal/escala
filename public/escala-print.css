@@ -1,4 +1,4 @@
-#header, #contacto, #app_store_link, #formulario input[type=submit] {
+#header, #contacto, #app_store_link, #formulario input[type=submit], .store_link {
   display:none;
 }
 
