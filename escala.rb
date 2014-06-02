@@ -35,6 +35,8 @@ end
 get '/' do
   if params[:planilla]
     planilla_excel
+  elsif params[:explicacion]
+    explicacion
   else
     tabla_web
   end
@@ -67,9 +69,22 @@ def planilla_excel
   p.to_stream
 end
 
-def nota(ptje) 
+def explicacion
+  params[:e] = params[:exig].to_f/100.0
+  [:p, :napr, :nmin, :pmax, :nmax].each do |key|
+    params[key] = params[key].to_f
+  end
+  @result = if params[:p] < params[:e] * params[:pmax]
+    ((params[:napr] - params[:nmin]) * params[:p] / (params[:e] * params[:pmax]) + params[:nmin]).round(9)
+  else
+    ((params[:nmax] - params[:napr]) * ((params[:p] - params[:e] * params[:pmax]) / (params[:pmax] * (1- params[:e] ))) + params[:napr]).round(9)
+  end
+  erb :explicacion
+end
+
+def nota(ptje)
   if(ptje<params[:exig]*params[:pmax])
-    nota=(params[:napr]-params[:nmin])*ptje/(params[:exig]*params[:pmax])+params[:nmin] 
+    nota=(params[:napr]-params[:nmin])*ptje/(params[:exig]*params[:pmax])+params[:nmin]
   else
     nota=(params[:nmax]-params[:napr])*(ptje-params[:exig]*params[:pmax])/(params[:pmax]*(1-params[:exig]))+params[:napr]
   end
