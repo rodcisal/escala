@@ -1,0 +1,160 @@
+$bebas-light: "bebas_neuelight";
+$bebas: "bebas_neuebook";
+
+
+@font-face {
+  font-family: 'bebas_neuelight';
+  src: url('bebasneue_light-webfont.eot');
+  src: url('bebasneue_light-webfont.eot?#iefix') format('embedded-opentype'),
+       url('bebasneue_light-webfont.woff') format('woff'),
+       url('bebasneue_light-webfont.ttf') format('truetype'),
+       url('bebasneue_light-webfont.svg#bebas_neuelight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'bebas_neuebook';
+  src: url('bebasneue_book-webfont.eot');
+  src: url('bebasneue_book-webfont.eot?#iefix') format('embedded-opentype'),
+       url('bebasneue_book-webfont.woff') format('woff'),
+       url('bebasneue_book-webfont.ttf') format('truetype'),
+       url('bebasneue_book-webfont.svg#bebas_neuebook') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'pt_sansregular';
+  src: url('PTS55F-webfont.eot');
+  src: url('PTS55F-webfont.eot?#iefix') format('embedded-opentype'),
+       url('PTS55F-webfont.woff') format('woff'),
+       url('PTS55F-webfont.ttf') format('truetype'),
+       url('PTS55F-webfont.svg#pt_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sinkin_sans500_medium';
+  src: url('SinkinSans-500Medium-webfont.eot');
+  src: url('SinkinSans-500Medium-webfont.eot?#iefix') format('embedded-opentype'),
+       url('SinkinSans-500Medium-webfont.woff') format('woff'),
+       url('SinkinSans-500Medium-webfont.ttf') format('truetype'),
+       url('SinkinSans-500Medium-webfont.svg#sinkin_sans500_medium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+  color: #6C6C6C;
+  background-color: #bdbdbb;
+  margin: 0;
+  padding: 0;
+}
+
+
+.escala-de-notas {
+  font-family: 'sinkin_sans500_medium';
+  float:left;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    margin-left: 45px;
+  }
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.half {
+  display: inline-block;
+  vertical-align: top;
+  width: 49%;
+  font-size: 12px;
+}
+
+
+.title {
+  h1 {
+    font-size: 45px;
+    font-family: $bebas;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  span {
+    font-size: 14px;
+  }
+
+  #autor {
+    text-align: center;
+  }
+}
+
+header {
+  font-size: 0;
+  padding: 15px 0px;
+  overflow: hidden;
+}
+
+.none {
+  display: none;
+}
+
+#formulario {
+  font-size: 13px;
+  font-family: 'pt_sansregular';
+  padding-left: 10%;
+
+  & > div {
+    position:relative;
+    height: 45px;
+    input {
+      width: 220px;
+      height: 35px;
+      padding-left: 160px;
+      font-size: 14px;
+      border: 2px solid rgb(214,214,214);
+      box-shadow: 3px 3px 0px rgba(0,0,0,0.09);
+    }
+
+    label:not(.radios) {
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      font-size: 14px;
+      color: #4D4D4D;
+    }
+  }
+}
+
+#autor {
+  font-family: 'pt_sansregular';
+}
+
+#redes-sociales {
+  width: 320px;
+  margin: 0 auto;
+  float: right;
+}
+
+.escala {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    width: 100%;
+  }
+}
+
