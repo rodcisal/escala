@@ -68,13 +68,18 @@
 						<label for="paso">Intervalo</label>
 					</div>
 					<div class="orden" id="orden">
-							<input type="radio" id="radio-ascendente" name="orden" value="ascendente" <%= "checked" if params[:orden] == 'ascendente' %>>
-							<label for="radio-ascendente" class="radios">Ascendente</label>
-							<input type="radio" id="radio-descendente" name="orden" value="descendente" <%= "checked" if params[:orden] == 'descendente' %>>
-							<label for="radio-descendente" class="radios">Descendente</label>
+						<div>Orden </div>
+						<input type="radio" id="radio-ascendente" name="orden" value="ascendente" <%= "checked" if params[:orden] == 'ascendente' %>>
+						<label for="radio-ascendente" class="radios">Ascendente</label>
+						<input type="radio" id="radio-descendente" name="orden" value="descendente" <%= "checked" if params[:orden] == 'descendente' %>>
+						<label for="radio-descendente" class="radios">Descendente</label>
 					</div>
-				<input type="submit" class="web" value="Generar tabla"/>
-				<input type="submit" class="planilla" name="planilla" value="Descargar planilla" id="planilla_button"/>
+					<div class="generar-tabla">
+						<input type="submit" id="boton-generar" lass="web" value="Generar tabla"/>
+					</div>
+					<div class="descargar-planilla">
+						<input type="submit" id="boton-descargar" class="planilla" name="planilla" value="Descargar planilla" id="planilla_button"/>
+					</div>
 
 				<div id="contacto">
 					<p>¿Recomendaciones, consejos, dudas?</p>
