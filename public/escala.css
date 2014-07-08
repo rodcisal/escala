@@ -1,16 +1,4 @@
 @font-face {
-  font-family: 'bebas_neuelight';
-  src: url("bebasneue_light-webfont.eot");
-  src: url("bebasneue_light-webfont.eot?#iefix") format("embedded-opentype"), url("bebasneue_light-webfont.woff") format("woff"), url("bebasneue_light-webfont.ttf") format("truetype"), url("bebasneue_light-webfont.svg#bebas_neuelight") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-@font-face {
-  font-family: 'bebas_neuebook';
-  src: url("bebasneue_book-webfont.eot");
-  src: url("bebasneue_book-webfont.eot?#iefix") format("embedded-opentype"), url("bebasneue_book-webfont.woff") format("woff"), url("bebasneue_book-webfont.ttf") format("truetype"), url("bebasneue_book-webfont.svg#bebas_neuebook") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-@font-face {
   font-family: 'pt_sansregular';
   src: url("PTS55F-webfont.eot");
   src: url("PTS55F-webfont.eot?#iefix") format("embedded-opentype"), url("PTS55F-webfont.woff") format("woff"), url("PTS55F-webfont.ttf") format("truetype"), url("PTS55F-webfont.svg#pt_sansregular") format("svg");
@@ -22,6 +10,9 @@
   src: url("SinkinSans-500Medium-webfont.eot?#iefix") format("embedded-opentype"), url("SinkinSans-500Medium-webfont.woff") format("woff"), url("SinkinSans-500Medium-webfont.ttf") format("truetype"), url("SinkinSans-500Medium-webfont.svg#sinkin_sans500_medium") format("svg");
   font-weight: normal;
   font-style: normal; }
+html, body {
+  overflow-x: hidden; }
+
 body {
   color: #6C6C6C;
   background-color: #f6f6f6;
@@ -37,6 +28,11 @@ body {
     font-size: 18px;
     margin-left: 29px;
     color: #EA5929; }
+  .escala-de-notas span {
+    font-size: 10px;
+    text-align: right;
+    display: block;
+    padding-right: 30px; }
 
 .container {
   width: 1000px;
@@ -92,16 +88,22 @@ header {
       top: 8px;
       font-size: 14px;
       color: #4D4D4D; }
+      #formulario > div label:not(.radios) i {
+        margin-right: 10px;
+        color: #4D4D4D; }
 
 #autor {
   font-family: 'pt_sansregular'; }
 
 #redes-sociales {
-  width: 320px;
   margin: 0 auto;
   float: right;
   position: relative;
   top: 5px; }
+  #redes-sociales div, #redes-sociales iframe {
+    margin: 0 5px;
+    display: inline-block;
+    vertical-align: top; }
 
 .escala {
   display: inline-block;
@@ -112,11 +114,16 @@ header {
   margin: 0 10px;
   margin-bottom: 30px; }
   .escala tr th {
-    color: #A09D98; }
+    color: #FFFFFF;
+    width: 80px;
+    text-align: left;
+    background-color: #308CD8; }
+  .escala tr th, .escala tr td {
+    padding-left: 10px; }
   .escala tr td {
-    font-size: 14px;
-    border-bottom: 1px solid black;
-    padding: 4px 0; }
+    font-size: 14px; }
+  .escala .odd {
+    background-color: #f8f8f8; }
 
 .generar-tabla #boton-generar, .generar-tabla #boton-descargar, .descargar-planilla #boton-generar, .descargar-planilla #boton-descargar {
   background-color: #FE6030;
@@ -132,6 +139,11 @@ header {
 
 #orden {
   margin-bottom: 10px; }
+  #orden .radios {
+    border-radius: 0; }
+
+#formulario > #contacto {
+  height: auto; }
 
 @media only screen and (max-width: 1000px) {
   .container {
@@ -173,12 +185,32 @@ header {
 
   #redes-sociales {
     display: none; }
+    #redes-sociales div, #redes-sociales iframe {
+      margin: 0 5px;
+      display: inline-block;
+      vertical-align: top; }
 
   #formulario {
-    width: 220px;
+    width: 280px;
     margin: 0 auto;
     padding-left: 0; }
+    #formulario div > input {
+      width: 100%;
+      padding-left: 220px; }
 
   #header {
     margin: 0;
-    padding: 0; } }
+    padding: 0; }
+
+  .escala {
+    width: 100%;
+    margin-left: 0;
+    padding: 0 25px; }
+
+  #orden .radios {
+    width: 50%; }
+
+  #contacto {
+    margin: 10px; }
+    #contacto p {
+      margin: 3px 0; } }
