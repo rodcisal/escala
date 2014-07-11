@@ -1,30 +1,6 @@
 $bebas-light: "bebas_neuelight";
 $bebas: "bebas_neuebook";
 
-
-@font-face {
-  font-family: 'bebas_neuelight';
-  src: url('bebasneue_light-webfont.eot');
-  src: url('bebasneue_light-webfont.eot?#iefix') format('embedded-opentype'),
-       url('bebasneue_light-webfont.woff') format('woff'),
-       url('bebasneue_light-webfont.ttf') format('truetype'),
-       url('bebasneue_light-webfont.svg#bebas_neuelight') format('svg');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-@font-face {
-  font-family: 'bebas_neuebook';
-  src: url('bebasneue_book-webfont.eot');
-  src: url('bebasneue_book-webfont.eot?#iefix') format('embedded-opentype'),
-       url('bebasneue_book-webfont.woff') format('woff'),
-       url('bebasneue_book-webfont.ttf') format('truetype'),
-       url('bebasneue_book-webfont.svg#bebas_neuebook') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
 @font-face {
   font-family: 'pt_sansregular';
   src: url('PTS55F-webfont.eot');
@@ -47,6 +23,10 @@ $bebas: "bebas_neuebook";
   font-style: normal;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 
 body {
   color: #6C6C6C;
@@ -66,6 +46,13 @@ body {
     font-size: 18px;
     margin-left: 29px;
     color: #EA5929;
+  }
+
+  span {
+    font-size: 10px;
+    text-align: right;
+    display: block;
+    padding-right: 30px;
   }
 }
 
@@ -141,6 +128,11 @@ header {
       top: 8px;
       font-size: 14px;
       color: #4D4D4D;
+
+      i {
+        margin-right: 10px;
+        color: #4D4D4D;
+      }
     }
   }
 }
@@ -150,11 +142,16 @@ header {
 }
 
 #redes-sociales {
-  width: 320px;
   margin: 0 auto;
   float: right;
   position: relative;
   top: 5px;
+
+  div, iframe {
+    margin: 0 5px;
+    display: inline-block;
+    vertical-align: top;
+  }
 }
 
 .escala {
@@ -167,7 +164,14 @@ header {
   margin-bottom: 30px;
 
   & tr th {
-    color: #A09D98;
+    color: #FFFFFF;
+    width: 80px;
+    text-align: left;
+    background-color: #308CD8;
+  }
+
+  & tr th, & tr td {
+    padding-left: 10px;
   }
 
   & tr {
@@ -176,8 +180,10 @@ header {
 
   & tr td {
     font-size: 14px;
-    border-bottom: 1px solid black;
-    padding: 4px 0;
+  }
+
+  .odd {
+    background-color: #f8f8f8;
   }
 }
 
@@ -203,6 +209,14 @@ header {
 
 #orden {
   margin-bottom: 10px;
+
+  .radios {
+    border-radius: 0;
+  }
+}
+
+#formulario > #contacto {
+  height: auto ; 
 }
 
 @media only screen and (max-width: 1000px) {
@@ -268,17 +282,49 @@ header {
 
   #redes-sociales {
     display: none;
+
+    div, iframe {
+      margin: 0 5px;
+      display: inline-block;
+      vertical-align: top;
+    }
   }
 
   #formulario {
-    width: 220px;
+    width: 280px;
     margin: 0 auto;
     padding-left: 0;
+
+    div > input {
+      width: 100%;
+      padding-left: 220px;
+    }
   }
 
   #header {
     margin: 0;
     padding: 0;
   }
+
+  .escala {
+    width: 100%;
+    margin-left: 0;
+    padding: 0 25px;
+  }
+
+  #orden {
+    .radios {
+      width: 50%;
+    }
+  }
+
+  #contacto {
+    margin: 10px;
+    p {
+      margin: 3px 0;
+    }
+  }
+
+
 }
 
