@@ -35,4 +35,6 @@ $(function() {
     _gaq.push(['_trackEvent', 'links', 'click', 'planilla_excel']);
   });
 
+  $('#orden').buttonset();
+
 });
